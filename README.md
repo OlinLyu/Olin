@@ -1,42 +1,46 @@
-# Programming in R
-## Homework Task I -- git and GitHub
+Conflict Analysis Project
 
-This is your first homework task. Since it will not be graded there is no deadline. Nevertheless, we strongly encourage you to try out this task, both to get to know the homework task format and to get to know git. All the following tasks will assume that you know how to use `git` and *GitHub*.
+Project Overview
 
-## Information Material
+This project analyzes conflict events from 1997 to 2024, exploring their distribution across different regions, time periods, and population densities. Through data cleaning, statistical analysis, and visualization, we identify conflict hotspots, temporal trends, and the relationship between conflict events and population density.
 
-* [Slides](ProgR_01_Git.pdf)
-* Recommended resources
-  * **[Software Carpentry Git Course](https://swcarpentry.github.io/git-novice/)**: A very good and thorough first `git` course that teaches how to use `git` from the command line. It is strongly recommended that you know the command line `git`, since you will understand what is going on under the hood even when using other tools. Expected reading time: 3 hours.
-  * **[Happy Git with R](https://happygitwithr.com/index.html)**: A course of `git`, *GitHub*, and *RStudio*. This will teach you how to use all your tools together efficiently. 
-* Additional resources
-  * **[Git Immersion](http://gitimmersion.com/index.html)**: Similar to the "*Software Carpentry Git Course*" but with less explanation.
-  * **[Git and GitHub](https://web.archive.org/web/20200709150612/http://r-pkgs.had.co.nz/git.html)** from the book "R Packages" (1st edition) by Hadley Wickham: A quick intro on how to use `git`, *GitHub*, and *RStudio* that is shorter than "*Happy Git with R*" above and may be for you if you are a quick learner.
-  * **[GitHub Introduction](https://guides.github.com/activities/hello-world/)**: Get to know the *GitHub* web interface
-  * **Cheat Sheets** are an excellent way to keep a reference around and to look up commands you may have forgot. The big `git` companies all offer one (and GitHub isn't necessarily the best): [GitHub](https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf), [GitLab](https://about.gitlab.com/images/press/git-cheat-sheet.pdf), [Atlassian](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet). Look at all of them and see if you find them useful.
-  
-## The Task
+Data Source
 
-This is a project that was set up by different characters, who submitted their work to different branches. However, in the current state their individual contributions are in different branches and have not yet been brought together. Your task is to find out who created what part of the work, and to combine their efforts to get a working project.
+The dataset used in this analysis is sourced from [your data source, e.g., ACLED or other], containing 52,463 conflict event records with the following key attributes:
+	•	Event Type (e.g., riots, protests, armed conflicts)
+	•	Timestamp (date and time of the event)
+	•	Fatalities (number of casualties)
+	•	Geographic Location (latitude, longitude)
+	•	Population Density (population of the affected area)
 
-You will very likely not be able to do this unless you read a good part of at least one of the sources. Your reward will be that you find out how `git` works *now*, while you don't have to stress about deadlines.
+Analysis Topics
 
-### Setup
-1. "`fork`" this repository to your own GitHub Account
-2. "`clone`" your own fork to your laptop
+This project focuses on four key questions, using ggplot2 for visualization:
 
-### Inspection
-3. Look at the different branches present in the repository. How do they relate? (Hint: `git branch --all` is useful here. The "History" button in RStudio's "Git" pane may also be useful: try to show "(all branches)".)
-4. What branch / what character was working on which function?
+1. Fatalities by Event Type
+	•	Question: How do different types of conflict events impact fatalities?
+	•	Method: Boxplot (geom_boxplot) in ggplot2
+	•	Findings:
+	•	Some event types are associated with significantly higher casualties
+	•	Outliers were removed to provide a clearer view of the distribution
 
-### Merging
-5. Combine all the different branches into the master branch. You will get at least one "merge conflict", which you have to resolve intelligently: consider which of the conflicting edits is more "valuable". Note that you should not blindly merge all branches you find, because some branches are "parents" of other branches.
+2. Conflict Events vs. Population Density
+	•	Question: Is there a correlation between population density and the number of conflict events?
+	•	Method: Scatter plot (geom_point) + Regression line (geom_smooth)
+	•	Findings:
+	•	Areas with higher population density tend to have more conflict events
+	•	After applying a logarithmic transformation, the relationship is clearer
 
-### After You Merge
-6. Can you find out what part of the resulting code was created by what character? You could browse commits in *GitHub*, you could use *GitHub*'s "blame" function, and you can use `git blame`. Get familiar with all of them.
+3. Conflict Trends Over Time
+	•	Question: How has the number of conflict events changed over time?
+	•	Method: Line chart (geom_line) using time-series data
+	•	Findings:
+	•	Significant increase in conflict events in recent years
+	•	Some seasonal patterns can be observed
 
-### Rendering
-7. You whould now be able to load `sierpinski.Rmd` in your RStudio session and render it, getting a nice animation. Your result should look like this:
-
-  ![Sierpinski Triangle](sier.png)
-  
+4. Top Conflict Hotspots
+	•	Question: Which locations experience the highest number of conflicts?
+	•	Method: Bar chart (geom_bar)
+	•	Findings:
+	•	Abuja, Maiduguri, Lagos, and other cities emerge as major conflict hotspots
+	•	These cities have a significantly higher number of conflict events compared to others
