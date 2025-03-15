@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Conflict Analysis Project
 
 Project Overview
@@ -44,3 +45,6 @@ This project focuses on four key questions, using ggplot2 for visualization:
 	•	Findings:
 	•	Abuja, Maiduguri, Lagos, and other cities emerge as major conflict hotspots
 	•	These cities have a significantly higher number of conflict events compared to others
+=======
+# Conflict Analysis Project
+>>>>>>> Added README
